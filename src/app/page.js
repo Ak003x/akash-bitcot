@@ -17,11 +17,9 @@ export default function Home() {
 
   const filteredContacts = contacts.filter(
     (contact) =>
-      contact.first_name.toLowerCase().includes(search.toLowerCase()) ||
-      contact.last_name.toLowerCase().includes(search.toLowerCase()) ||
-      contact.phone.includes(search),
+      (contact.name || "").toLowerCase().includes(search.toLowerCase()) || 
+      (contact.mobile || "").includes(search), 
   );
-
   function deleteContact(id) {
     const updated = contacts.filter((c) => c.id !== id);
     setContacts(updated);
@@ -40,9 +38,9 @@ export default function Home() {
   }
 
   return (
-    <div className="">
-      <div className="">
-        <div className="">
+    <div className="min-h-screen flex justify-center  bg-gray-200">
+      <div className="w-100 p-4 rounded-lg">
+        <div className="bg-blue-300 text-center p-3 rounded-md flex justify-between">
           <h2 className="text-lg font-semibold">All Contacts</h2>
           <button onClick={() => setShowAdd(true)}>+</button>
         </div>
@@ -55,6 +53,27 @@ export default function Home() {
           setShowDetails={setShowDetails}
         />
       </div>
+
+      {showAdd && (
+        <AddEditContactModal
+          close={() => setShowAdd(false)}
+          save={addContact}
+        />
+      )}
+      {showEdit && (
+        <AddEditContactModal
+          close={() => setShowEdit(false)}
+          save={updateContact}
+          contact={selected}
+        />
+      )}
+
+      {showDetails && (
+        <ContactDetailsModal
+          close={() => setShowDetails(false)}
+          contact={selected}
+        />
+      )}
     </div>
   );
 }

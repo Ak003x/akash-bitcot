@@ -5,8 +5,8 @@ export default function SearchBar({search,setSearch}){
   return(
 
    <input
-   className=""
-   placeholder=""
+   className="w-full p-2 my-3 rounded border border-black"
+   placeholder="Search Contact"
    value={search}
    onChange={(e)=>setSearch(e.target.value)}
    

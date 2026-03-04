@@ -9,7 +9,7 @@ export default function ContactList({
   setShowDetails,
 }) {
   return (
-    <div className="">
+    <div className="space-y-3">
       {contacts.map((contact, index) => (
         <ContactItem
           key={contact.id}

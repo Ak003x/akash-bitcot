@@ -13,6 +13,7 @@ export default function useContacts() {
       try {
         const res = await fetch(API_URL);
         const data = await res.json();
+        console.log(data);
         setContacts(data);
         setLoading(false);
       } catch (error) {

@@ -12,10 +12,10 @@ export default function ContactItem({
     <div className="bg-white p-3 rounded flex justify-between items-center">
       <div>
         <p className="font-semibold">
-          {index + 1}. {contact.first_name} {contact.last_name}
+          {index + 1}. {contact.name} 
         </p>
 
-        <p>{contact.phone}</p>
+        <p>{contact.mobile}</p>
       </div>
 
       <div className="space-x-2">
