@@ -6,6 +6,7 @@ export default function AddEditContactModal({ close, save, contact }) {
     name: contact?.name || "",
     email: contact?.email || "",
     mobile: contact?.mobile || "",
+    address: contact?.address || "",
   });
 
   const [errors, setErrors] = useState({});
@@ -34,6 +35,13 @@ export default function AddEditContactModal({ close, save, contact }) {
       newErrors.mobile = "Mobile must be exactly 10 digits";
     }
 
+    //Address validation
+    if (!form.address.trim()) {
+      newErrors.address = "Address is required";
+    } else if (form.address.trim().length < 5) {
+      newErrors.address = "Address must be at least 5 characters";
+    }
+
     return newErrors;
   }
 
@@ -55,8 +63,11 @@ export default function AddEditContactModal({ close, save, contact }) {
   }
 
   return (
-    <div className="fixed inset-0 bg-black/40 flex items-center justify-center">
-      <form onSubmit={handleSubmit} className="bg-white p-6 rounded w-75">
+    <div className="fixed inset-0 bg-black/40 flex items-center justify-center overflow-hidden">
+      <form
+        onSubmit={handleSubmit}
+        className="bg-white p-6 rounded w-[300px] max-h-[90vh] overflow-y-auto"
+      >
         <h2 className="text-lg mb-4">
           {contact ? "Edit Contact" : "Add Contact"}
         </h2>
@@ -100,6 +111,21 @@ export default function AddEditContactModal({ close, save, contact }) {
           />
           {errors.mobile && (
             <p className="text-red-500 text-xs mt-1">{errors.mobile}</p>
+          )}
+        </div>
+
+        {/* Address */}
+        <div className="mb-2">
+          <textarea
+            className={`input resize-none ${errors.address ? "border-red-500" : ""}`}
+            placeholder="Address"
+            name="address"
+            rows={3}
+            value={form.address}
+            onChange={handleChange}
+          />
+          {errors.address && (
+            <p className="text-red-500 text-xs mt-1">{errors.address}</p>
           )}
         </div>
 

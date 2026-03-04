@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import useContacts from "../hooks/useContacts";
-import useContactList from "../components/ContactList";
 import SearchBar from "@/components/SearchBar";
 import AddEditContactModal from "@/components/AddEditContactModal";
 import ContactDetailsModal from "@/components/ContactDetailsModal";
@@ -17,8 +16,8 @@ export default function Home() {
 
   const filteredContacts = contacts.filter(
     (contact) =>
-      (contact.name || "").toLowerCase().includes(search.toLowerCase()) || 
-      (contact.mobile || "").includes(search), 
+      (contact.name || "").toLowerCase().includes(search.toLowerCase()) ||
+      (contact.mobile || "").includes(search),
   );
   function deleteContact(id) {
     const updated = contacts.filter((c) => c.id !== id);
@@ -38,8 +37,8 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen flex justify-center  bg-gray-200">
-      <div className="w-100 p-4 rounded-lg">
+    <div className="min-h-screen flex justify-center  bg-gray-200 overflow-x-hidden">
+      <div className="w-full max-w-md p-5 rounded-lg">
         <div className="bg-blue-300 text-center p-3 rounded-md flex justify-between">
           <h2 className="text-lg font-semibold">All Contacts</h2>
           <button onClick={() => setShowAdd(true)}>+</button>
