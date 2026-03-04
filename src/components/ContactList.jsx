@@ -1,9 +1,26 @@
-import React from 'react'
+import React from "react";
+import ContactItem from "./ContactItem";
 
-const ContactList = () => {
+export default function ContactList({
+  contacts,
+  deleteContact,
+  setSelected,
+  setShowEdit,
+  setShowDetails,
+}) {
   return (
-    <div>ContactList</div>
-  )
+    <div className="">
+      {contacts.map((contact, index) => (
+        <ContactItem
+          key={contact.id}
+          index={index}
+          contact={contact}
+          deleteContact={deleteContact}
+          setSelected={setSelected}
+          setShowEdit={setShowEdit}
+          setShowDetails={setShowDetails}
+        />
+      ))}
+    </div>
+  );
 }
-
-export default ContactList

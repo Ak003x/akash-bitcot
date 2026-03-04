@@ -1,9 +1,44 @@
-import React from 'react'
+import React from "react";
 
-const ContactItem = () => {
+export default function ContactItem({
+  index,
+  contact,
+  deleteContact,
+  setSelected,
+  setShowEdit,
+  setShowDetails,
+}) {
   return (
-    <div>ContactItem</div>
-  )
-}
+    <div className="bg-white p-3 rounded flex justify-between items-center">
+      <div>
+        <p className="font-semibold">
+          {index + 1}. {contact.first_name} {contact.last_name}
+        </p>
 
-export default ContactItem
+        <p>{contact.phone}</p>
+      </div>
+
+      <div className="space-x-2">
+        <button
+          onClick={() => {
+            setSelected(contact);
+            setShowDetails(true);
+          }}
+        >
+          👁
+        </button>
+
+        <button onClick={() => deleteContact(contact.id)}>🗑</button>
+
+        <button
+          onClick={() => {
+            setSelected(contact);
+            setShowEdit(true);
+          }}
+        >
+          ✏
+        </button>
+      </div>
+    </div>
+  );
+}

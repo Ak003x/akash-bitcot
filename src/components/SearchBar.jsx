@@ -1,7 +1,17 @@
 import React from "react";
 
-const SearchBar = () => {
-  return <div>SearchBar</div>;
-};
+export default function SearchBar({search,setSearch}){
 
-export default SearchBar;
+  return(
+
+   <input
+   className=""
+   placeholder=""
+   value={search}
+   onChange={(e)=>setSearch(e.target.value)}
+   
+   
+   
+   /> 
+  )
+}
