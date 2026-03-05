@@ -33,12 +33,12 @@ export default function ContactItem({
           {initials}
         </div>
         <div>
-          <p className="font-semibold text-gray-800 text-sm">
+          <p className="font-semibold text-gray-900 text-sm">
             {index + 1}. {contact.name}
           </p>
-          <p className="text-gray-500 text-xs">{contact.mobile}</p>
+          <p className="text-gray-800 text-xs font-medium">{contact.mobile}</p>
           {/* Show email  */}
-          <p className="text-gray-400 text-xs">{contact.email}</p>
+          <p className="text-gray-800 text-xs font-medium">{contact.email}</p>
         </div>
       </div>
 

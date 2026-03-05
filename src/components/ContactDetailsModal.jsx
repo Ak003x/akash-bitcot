@@ -33,7 +33,7 @@ export default function ContactDetailsModal({ contact, close }) {
         className="bg-white rounded-2xl w-full max-w-sm shadow-2xl overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
-        {/*  Header with avatar */}
+        {/* Header with avatar  */}
         <div className="bg-gradient-to-r from-blue-500 to-blue-600 p-6 text-white text-center">
           <div className="w-16 h-16 rounded-full bg-white/30 flex items-center justify-center text-2xl font-bold mx-auto mb-2">
             {initials}
@@ -53,8 +53,8 @@ export default function ContactDetailsModal({ contact, close }) {
               className="flex justify-between items-start bg-gray-50 rounded-lg p-3"
             >
               <div>
-                <p className="text-xs text-gray-400">{label}</p>
-                <p className="text-sm font-medium text-gray-700 break-all">
+                <p className="text-xs text-gray-900 font-semibold">{label}</p>
+                <p className="text-sm font-medium text-gray-500 break-all">
                   {value}
                 </p>
               </div>
@@ -72,7 +72,7 @@ export default function ContactDetailsModal({ contact, close }) {
 
           <button
             onClick={close}
-            className="w-full mt-2 bg-gray-100 hover:bg-gray-200 text-gray-700 py-2 rounded-lg text-sm font-medium transition cursor-pointer"
+            className="w-full mt-2 bg-gray-100 hover:bg-gray-200 text-gray-900 py-2 rounded-lg text-sm font-medium transition cursor-pointer"
           >
             Close
           </button>
