@@ -1,17 +1,25 @@
-import React from "react";
+export default function SearchBar({ search, setSearch }) {
+  return (
+    <div className="relative my-3">
 
-export default function SearchBar({search,setSearch}){
-
-  return(
-
-   <input
-   className="w-full p-2 my-3 rounded border border-black"
-   placeholder="Search Contact"
-   value={search}
-   onChange={(e)=>setSearch(e.target.value)}
-   
-   
-   
-   /> 
-  )
+      <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm">
+        🔍
+      </span>
+      <input
+        className="w-full pl-9 pr-9 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white text-sm"
+        placeholder="Search by name or number..."
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
+ 
+      {search && (
+        <button
+          onClick={() => setSearch("")}
+          className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 cursor-pointer"
+        >
+          ✕
+        </button>
+      )}
+    </div>
+  );
 }
