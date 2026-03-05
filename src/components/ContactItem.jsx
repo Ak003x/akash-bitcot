@@ -36,9 +36,9 @@ export default function ContactItem({
           <p className="font-semibold text-gray-900 text-sm">
             {index + 1}. {contact.name}
           </p>
-          <p className="text-gray-800 text-xs font-medium">{contact.mobile}</p>
+          <p className="text-gray-700 text-xs font-medium">{contact.mobile}</p>
           {/* Show email  */}
-          <p className="text-gray-800 text-xs font-medium">{contact.email}</p>
+          <p className="text-gray-700 text-xs font-medium">{contact.email}</p>
         </div>
       </div>
 
