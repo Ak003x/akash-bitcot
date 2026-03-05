@@ -35,7 +35,7 @@ export default function AddEditContactModal({ close, save, contact }) {
       newErrors.mobile = "Mobile must be exactly 10 digits";
     }
 
-    //Address validation
+    // Address validation
     if (!form.address.trim()) {
       newErrors.address = "Address is required";
     } else if (form.address.trim().length < 5) {
@@ -66,17 +66,21 @@ export default function AddEditContactModal({ close, save, contact }) {
     <div className="fixed inset-0 bg-black/40 flex items-center justify-center overflow-hidden">
       <form
         onSubmit={handleSubmit}
-        className="bg-white p-6 rounded w-[300px] max-h-[90vh] overflow-y-auto"
+        className="bg-white p-6 rounded-xl w-[340px] max-h-[90vh] overflow-y-auto shadow-lg"
       >
-        <h2 className="text-lg mb-4">
+        {/* Header */}
+        <h2 className="text-lg font-semibold text-gray-800 mb-5 pb-2 border-b border-gray-200">
           {contact ? "Edit Contact" : "Add Contact"}
         </h2>
 
         {/* Name */}
-        <div className="mb-2">
+        <div className="mb-4">
+          <label className="text-xs font-medium text-gray-500 mb-1 block">
+            Name
+          </label>
           <input
-            className={`input ${errors.name ? "border-red-500" : ""}`}
-            placeholder="Name"
+            className={`input ${errors.name ? "border-red-400" : "border-gray-300"}`}
+            placeholder="Enter name"
             name="name"
             value={form.name}
             onChange={handleChange}
@@ -87,10 +91,13 @@ export default function AddEditContactModal({ close, save, contact }) {
         </div>
 
         {/* Email */}
-        <div className="mb-2">
+        <div className="mb-4">
+          <label className="text-xs font-medium text-gray-500 mb-1 block">
+            Email
+          </label>
           <input
-            className={`input ${errors.email ? "border-red-500" : ""}`}
-            placeholder="Email"
+            className={`input ${errors.email ? "border-red-400" : "border-gray-300"}`}
+            placeholder="Enter email"
             name="email"
             value={form.email}
             onChange={handleChange}
@@ -101,10 +108,13 @@ export default function AddEditContactModal({ close, save, contact }) {
         </div>
 
         {/* Mobile */}
-        <div className="mb-2">
+        <div className="mb-4">
+          <label className="text-xs font-medium text-gray-500 mb-1 block">
+            Mobile
+          </label>
           <input
-            className={`input ${errors.mobile ? "border-red-500" : ""}`}
-            placeholder="Mobile"
+            className={`input ${errors.mobile ? "border-red-400" : "border-gray-300"}`}
+            placeholder="Enter 10-digit mobile"
             name="mobile"
             value={form.mobile}
             onChange={handleChange}
@@ -115,10 +125,13 @@ export default function AddEditContactModal({ close, save, contact }) {
         </div>
 
         {/* Address */}
-        <div className="mb-2">
+        <div className="mb-4">
+          <label className="text-xs font-medium text-gray-500 mb-1 block">
+            Address
+          </label>
           <textarea
-            className={`input resize-none ${errors.address ? "border-red-500" : ""}`}
-            placeholder="Address"
+            className={`input resize-none ${errors.address ? "border-red-400" : "border-gray-300"}`}
+            placeholder="Enter address"
             name="address"
             rows={3}
             value={form.address}
@@ -129,15 +142,16 @@ export default function AddEditContactModal({ close, save, contact }) {
           )}
         </div>
 
-        <div className="flex gap-3 mt-4">
+        {/* Buttons */}
+        <div className="flex gap-3 pt-4 border-t border-gray-200">
           <button
-            className="bg-blue-500 text-white px-4 py-1 rounded"
+            className="bg-blue-500 hover:bg-blue-600 text-white px-5 py-2 rounded-lg text-sm font-medium transition"
             type="submit"
           >
             {contact ? "Update" : "Submit"}
           </button>
           <button
-            className="bg-gray-400 px-4 py-1 rounded"
+            className="bg-gray-100 hover:bg-gray-200 text-gray-600 px-5 py-2 rounded-lg text-sm font-medium transition"
             type="button"
             onClick={close}
           >

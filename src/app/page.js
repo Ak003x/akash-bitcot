@@ -50,14 +50,14 @@ export default function Home() {
     );
 
   return (
-    <div className="min-h-screen bg-gray-100 flex justify-center py-8 px-4">
+    <div className="min-h-screen bg-slate-100 flex justify-center pt-10 ">
       <div className="w-full max-w-md">
         {/* Header */}
-        <div className="bg-blue-500 text-center p-3 rounded-md flex justify-between items-center">
+        <div className="bg-blue-600 text-white px-4 py-3 rounded-t-xl flex justify-between items-center">
           <h2 className="text-lg font-semibold text-white">All Contacts</h2>
           <button
             onClick={() => setShowAdd(true)}
-            className="bg-white text-blue-600 font-bold w-9 h-9 rounded-full hover:bg-blue-100 active:scale-95 transition cursor-pointer text-xl leading-none shadow-md flex items-center justify-center"
+            className="bg-white text-blue-600 rounded-full w-7 h-7 flex items-center justify-center hover:bg-blue-50"
             title="Add Contact"
           >
             +

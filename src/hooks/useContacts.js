@@ -17,8 +17,6 @@ export default function useContacts() {
         setContacts(data);
       } catch (err) {
         setError(err.message);
-      } finally {
-        setLoading(false);
       }
     }
     fetchContacts();
