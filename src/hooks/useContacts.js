@@ -6,7 +6,6 @@ const API_URL =
 
 export default function useContacts() {
   const [contacts, setContacts] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -25,5 +24,5 @@ export default function useContacts() {
     fetchContacts();
   }, []);
 
-  return { contacts, setContacts, loading, error };
+  return { contacts, setContacts, error };
 }
