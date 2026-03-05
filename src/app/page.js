@@ -50,10 +50,11 @@ export default function Home() {
     );
 
   return (
-    <div className="min-h-screen bg-slate-100 flex justify-center pt-10 ">
-      <div className="w-full max-w-md">
+    <div className="min-h-screen bg-slate-100 flex justify-center pt-10 px-4">
+      <div className="w-full max-w-md bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden h-fit pb-4">
+
         {/* Header */}
-        <div className="bg-blue-600 text-white px-4 py-3 rounded-t-xl flex justify-between items-center">
+        <div className="bg-blue-600 text-white px-4 py-3 flex justify-between items-center">
           <h2 className="text-lg font-semibold text-white">All Contacts</h2>
           <button
             onClick={() => setShowAdd(true)}
@@ -65,28 +66,30 @@ export default function Home() {
         </div>
 
         {/* Search Bar */}
-        <SearchBar search={search} setSearch={setSearch} />
+        <div className="px-4 pt-4">
+          <SearchBar search={search} setSearch={setSearch} />
 
-        {/* Contact Count */}
-        <p className="text-sm text-gray-500 mb-2">
-          {filteredContacts.length} contact
-          {filteredContacts.length !== 1 ? "s" : ""} found
-        </p>
+          {/* Contact Count */}
+          <p className="text-sm text-gray-500 mb-2">
+            {filteredContacts.length} contact
+            {filteredContacts.length !== 1 ? "s" : ""} found
+          </p>
 
-        {/* Contact List */}
-        {filteredContacts.length === 0 ? (
-          <div className="text-center text-gray-400 mt-10 text-sm">
-            No contacts found.
-          </div>
-        ) : (
-          <ContactList
-            contacts={filteredContacts}
-            deleteContact={deleteContact}
-            setSelected={setSelected}
-            setShowEdit={setShowEdit}
-            setShowDetails={setShowDetails}
-          />
-        )}
+          {/* Contact List */}
+          {filteredContacts.length === 0 ? (
+            <div className="text-center text-gray-400 mt-10 text-sm">
+              No contacts found.
+            </div>
+          ) : (
+            <ContactList
+              contacts={filteredContacts}
+              deleteContact={deleteContact}
+              setSelected={setSelected}
+              setShowEdit={setShowEdit}
+              setShowDetails={setShowDetails}
+            />
+          )}
+        </div>
 
         {/* Add Contact Modal */}
         {showAdd && (
@@ -112,6 +115,7 @@ export default function Home() {
             close={() => setShowDetails(false)}
           />
         )}
+
       </div>
     </div>
   );

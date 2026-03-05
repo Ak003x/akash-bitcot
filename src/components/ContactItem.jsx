@@ -24,7 +24,7 @@ export default function ContactItem({
   const color = colors[contact.id % colors.length] || "bg-blue-400";
 
   return (
-    <div className="bg-white px-4 py-3 rounded-xl flex justify-between items-center shadow-sm hover:shadow-md transition">
+    <div className="bg-white px-4 py-3 rounded-xl flex justify-between items-center border border-gray-200 shadow-sm hover:shadow-md transition">
       <div className="flex items-center gap-3">
         {/*  Avatar */}
         <div
