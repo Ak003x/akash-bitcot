@@ -2,7 +2,7 @@ import { useState } from "react";
 
 export default function AddEditContactModal({ close, save, contact }) {
   const [form, setForm] = useState({
-    id: contact?.id || Date.now(),
+    id: contact?.id || "",
     name: contact?.name || "",
     email: contact?.email || "",
     mobile: contact?.mobile || "",
